@@ -1,8 +1,8 @@
--- Colorscheme name:    chalkboard.nvim
--- Description:         Adapted from shaunsingh/nord.nvim
+-- Colorscheme name:    toytiza.nvim
+-- Description:         Adapted from shaunsingh/nord.nvim and folke/tokyonight.nvim
 -- Author:              https://github.com/profesorpaiche
 
-local util = require("chalkboard.util")
+local util = require("toytiza.util")
 -- local bufferline = require("bufferline.theme")
 
 -- -- Load the theme

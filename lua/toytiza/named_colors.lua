@@ -1,32 +1,9 @@
-local chalkboard = {
+local M = {}
+
+M.default = {
     greenboard = '#274C43',
     foreground = '#EFEBFF',
     blackboard = '#292732',
-    black_dark = '#3A3843',
-    black_normal = '#4C4955',
-    black_light = '#5E5C68',
-    white_dark = '#AEABBB',
-    white_normal = '#C3C0D1',
-    white_light = '#D9D5E8',
-    red_dark = '#B35C82',
-    red_normal = '#FEA2C7',
-    red_light = '#FFD5F1',
-    orange_dark = '#AC7C37',
-    orange_normal = '#FFC98B',
-    orange_light = '#FFE9BC',
-    yellow_dark = '#A29C4E',
-    yellow_normal = '#FDF7AB',
-    yellow_light = '#FFFEC5',
-    green_dark = '#568E67',
-    green_normal = '#A1DAB1',
-    green_light = '#CDF9D9',
-    blue_dark = '#568BA9',
-    blue_normal = '#A6D8F9',
-    blue_light = '#D0F5FF',
-    purple_dark = '#8978A3',
-    purple_normal = '#D3C2EF',
-    purple_light = '#F5E8FF',
-    none = 'NONE',
     black_1 = '#35333E',
     black_2 = '#413F4A',
     black_3 = '#4E4C58',
@@ -76,5 +53,14 @@ local chalkboard = {
     purple_3 = '#D3C2EF',
     purple_4 = '#D9CAF2',
     purple_5 = '#DFD2F5',
+    none = 'NONE',
 }
-return chalkboard
+
+-- NOTE: Adapted from Tokyo Night, but nothing to pass yet
+function M.setup(opts)
+    opts = opts or {}
+    local colors = M.default
+    return colors
+end
+
+return M
