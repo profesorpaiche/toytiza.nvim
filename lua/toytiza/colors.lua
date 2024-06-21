@@ -1,6 +1,4 @@
-local M = {}
-
-M.default = {
+local default = {
     greenboard = '#274C43',
     foreground = '#EFEBFF',
     blackboard = '#292732',
@@ -56,11 +54,7 @@ M.default = {
     none = 'NONE',
 }
 
--- NOTE: Adapted from Tokyo Night, but nothing to pass yet
-function M.setup(opts)
-    opts = opts or {}
-    local colors = M.default
-    return colors
-end
+-- NOTE: More options can be implemented following
+--      https://github.com/shaunsingh/nord.nvim/blob/master/lua/nord/colors.lua
 
-return M
+return default

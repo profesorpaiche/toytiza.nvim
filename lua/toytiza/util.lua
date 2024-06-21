@@ -1,5 +1,5 @@
 local util = {}
-local toytiza = require("toytiza.theme").setup()
+local toytiza = require("toytiza.theme")
 
 -- Go trough the table and highlight the group with the color values
 util.highlight = function(group, color)
@@ -16,7 +16,7 @@ util.highlight = function(group, color)
     end
 end
 
--- Only define toytiza if it's the active colorscheme
+-- Only define chalkboard if it's the active colorscheme
 function util.onColorScheme()
     if vim.g.colors_name ~= "toytiza" then
         vim.cmd([[autocmd! toytiza]])
@@ -58,29 +58,27 @@ function util.load()
     -- local filetypes = toytiza.loadFiletypes()
     local highlights = toytiza.highlights
 
-    -- -- load editor highlights
+    -- load editor, sintax, treesitter, filetype-specific highlights
     -- util.loadColorSet(editor)
-    -- -- load syntax highlights
     -- util.loadColorSet(syntax)
-    -- -- load treesitter highlights
     -- util.loadColorSet(treesitter)
-    -- -- load filetype-specific highlights
     -- util.loadColorSet(filetypes)
-    -- toytiza.loadTerminal()
-
     util.loadColorSet(highlights)
 
-    -- -- imort tables for plugins and lsp
+    toytiza.loadTerminal()
+
+    -- import tables for plugins and lsp
     -- local plugins = toytiza.loadPlugins()
     -- local lsp = toytiza.loadLSP()
 
-    -- -- load plugin highlights
+    -- load plugin highlights
     -- util.loadColorSet(plugins)
-    -- -- load lsp highlights
+
+    -- load lsp highlights
     -- util.loadColorSet(lsp)
 
     -- if contrast is enabled, apply it to sidebars and floating windows
-    if vim.g.toytiza_contrast == true then
+    if vim.g.chalkboard_contrast == true then
         util.contrast()
     end
 end
