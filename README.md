@@ -3,7 +3,7 @@
 This is a color scheme for NeoVim based on a [picture of chalks from
 IKEA](https://www.ikea.com/ca/en/images/products/mala-chalk-mixed-colors__1085507_pe860123_s5.jpg).
 
-![](chalk.jpg)
+<img src="https://www.ikea.com/ca/en/images/products/mala-chalk-mixed-colors__1085507_pe860123_s5.jpg" width="200" height="200">
 
 ## Install
 
