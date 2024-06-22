@@ -25,6 +25,16 @@ copy the following in your config:
 That's all. There are no additional options for the configuration for
 the moment.
 
+## Examles
+
+- Lua
+
+![](img/lua_example.png)
+
+- Julia
+
+![](img/julia_example.png)
+
 ## Ports
 
 The main colors are listed in `toytiza_scheme.md` so you can port it to any
