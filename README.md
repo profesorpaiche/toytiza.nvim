@@ -7,7 +7,7 @@ IKEA](https://www.ikea.com/ca/en/images/products/mala-chalk-mixed-colors__108550
 
 ## Install
 
-If you are uszin [lazy.vim](https://github.com/folke/lazy.nvim) just
+If you are using [lazy.vim](https://github.com/folke/lazy.nvim) just
 copy the following in your config:
 
 ```lua
@@ -27,9 +27,9 @@ the moment.
 
 ## Ports
 
- The main colors are listed in `toytiza_scheme.md` so you can port it to
- any other software you want. For example, this is the implementation of
- the colors for the Wezterm and Alacritty terminal emulators.
+The main colors are listed in `toytiza_scheme.md` so you can port it to any
+other software you want. For example, this is the implementation of the colors
+for the Wezterm and Alacritty terminal emulators.
 
 - Wezterm:
 
