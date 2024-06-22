@@ -1,6 +1,5 @@
 -- local chalkboard = require("chalkboard.colors")
 local c = require("toytiza.colors")
-
 local theme = {}
 
 -- NOTE: Additional options can be used
@@ -38,7 +37,7 @@ theme.highlights = {
     MsgArea = { fg = c.white_1 }, -- Area for messages and cmdline
 
     MoreMsg = { fg = c.blue_3 }, -- |more-prompt|
-    NonText = { fg = c.bla_4 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText = { fg = c.black_4 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal = { fg = c.foreground, bg = c.blackboard }, -- normal text
     NormalNC = { fg = c.foreground, bg = c.blackboard }, -- normal text in non-current windows
     NormalSB = { fg = c.black_4, bg = c.blackboard }, -- normal text in sidebar
@@ -51,8 +50,8 @@ theme.highlights = {
     PmenuThumb = { fg = c.foreground, bg = c.purple_b }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.yellow_3 }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = c.black_1, style = "bold" }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = { fg = c.blackboard, bg = c.purple_1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    IncSearch = { fg = c.blackboard, bg = c.yellow_5 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Search = { fg = c.black_3, bg = c.purple_1 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    IncSearch = { fg = c.black_3, bg = c.yellow_5 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch = { link = "IncSearch" },
     SpecialKey = { fg = c.black_4 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = { sp = c.red_1, style = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
@@ -74,7 +73,7 @@ theme.highlights = {
     WinBarNC = { link = "StatusLineNC" }, -- window bar in inactive windows
 
     -- qfLineNr = { fg = c.whi_4, bg = c.none, style = "reverse" },
-    qfLineNr = { fg = c.grey_2 },
+    qfLineNr = { fg = c.gray_2 },
     qfFileName = { fg = c.blue_3 },
 
     StatusLineTerm = { fg = c.white_3, bg = c.gray_5 },
@@ -90,11 +89,12 @@ theme.highlights = {
 
     -- Needs improvement
     Operator = { fg = c.red_5 }, -- sizeof", "+", "*", etc.
-    Constant = { fg = c.green_3 }, -- any constant
+    Constant = { fg = c.white_3 }, -- any constant
     String = { fg = c.yellow_3, style = "italic" }, -- any string
     Character = { fg = c.yellow_3, style = "italic" }, -- any character constant: 'c', '\n'
     Number = { fg = c.purple_3 }, -- a number constant: 5
-    Boolean = { fg = c.orange_3, style = "italic" }, -- a boolean constant: TRUE, false
+    -- Boolean = { fg = c.orange_3, style = "italic" }, -- a boolean constant: TRUE, false
+    Boolean = { fg = c.red_3, style = "italic" }, -- a boolean constant: TRUE, false
     Float = { fg = c.purple_3 }, -- a floating point constant: 2.3e10
 
     Statement = { fg = c.green_5, style = "italic" }, -- any statement
@@ -105,7 +105,7 @@ theme.highlights = {
     PreProc = { fg = c.blue_1, style = "italic" }, -- generic Preprocessor
     -- Include = { fg = c.purple_3 }, -- preprocessor #include
     -- Define = { fg = c.purple_3 }, -- preprocessor #define
-    -- Macro = { fg = c.purple_3 }, -- same as Define
+    Macro = { fg = c.green_1 }, -- same as Define
     -- PreCondit = { fg = c.purple_3 }, -- preprocessor #if, #else, #endif, etc.
 
     Type = { fg = c.purple_3 }, -- int, long, char, etc.
@@ -113,7 +113,8 @@ theme.highlights = {
     -- Structure = { fg = c.orange_3 }, -- struct, union, enum, etc.
     -- Typedef = { fg = c.purple_3 }, -- A typedef
 
-    Special = { fg = c.yellow_1, style = "italic" }, -- any special symbol
+    Special = { fg = c.red_1, style = "italic" }, -- any special symbol
+    -- Special = { fg = c.yellow_1, style = "italic" }, -- any special symbol
     SpecialChar = { fg = c.yellow_3, style = "italic" }, -- special character in a constant
     -- Tag = { fg = c.yellow_3 }, -- you can use CTRL-] on this
     Delimiter = { fg = c.red_5 }, -- character that needs attention like , or .
@@ -125,6 +126,7 @@ theme.highlights = {
     Italic = { fg = c.foreground, style = "italic" }, -- (preferred) any italic text
     Ignore = { fg = c.black_1 }, -- left blank, hidden
 
+    Conditional = { fg = c.green_3, style = "italic" }, -- italic if, then, else, endif, switch, etc.
     -- Conditional = { fg = c.red_3, style = "italic" }, -- italic if, then, else, endif, switch, etc.
     Error = { fg = c.none, bg = c.red_3, style = "bold,underline" }, -- any erroneous construct with bold
     Todo = { style = "bold,italic" }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -181,6 +183,7 @@ theme.highlights = {
     ["@constant.builtin"] = { link = "Special" },
     ["@constant.macro"] = { link = "Define" },
     ["@keyword.conditional"] = { link = "Conditional" },
+    ["@keyword.conditional.ternary"] = { fg = c.orange_3, style = "bold" },
     ["@keyword.debug"] = { link = "Debug" },
     ["@keyword.directive.define"] = { link = "Define" },
     ["@keyword.exception"] = { link = "Exception" },
@@ -204,14 +207,22 @@ theme.highlights = {
     ["@markup.raw.markdown_inline"] = { bg = c.blackboard, fg = c.blue_3 },
     ["@markup.math"] = { link = "Special" },
     ["@markup.strong"] = { style = "bold" },
+    ["@markup.italic"] = { style = "italic" },
     ["@markup.emphasis"] = { style = "italic" },
     ["@markup.strikethrough"] = { style = "strikethrough" },
     ["@markup.underline"] = { style = "underline" },
     ["@markup.heading"] = { link = "Title" },
-    -- ["@markup.link.label"] = { link = "SpecialChar" },
-    ["@markup.link.label"] = { link = "Special" },
+    ["@markup.link.label"] = { fg = c.green_3 },
     ["@markup.link.label.symbol"] = { link = "Identifier" },
-    ["@markup.link.url"] = { link = "Underlined" },
+    ["@markup.link.url"] = { fg = c.blue_3, style = "underline" },
+    ["@markup.link.markdown_inline"] = { fg = c.yellow_3 },
+
+    ["@markup.heading.1"] = { link = "markdownH1" },
+    ["@markup.heading.2"] = { link = "markdownH2" },
+    ["@markup.heading.3"] = { link = "markdownH3" },
+    ["@markup.heading.4"] = { link = "markdownH4" },
+    ["@markup.heading.5"] = { link = "markdownH5" },
+    ["@markup.heading.6"] = { link = "markdownH6" },
 
     ["@operator"] = { link = "Operator" }, -- For any operator: `+`, but also `->` and `*` in C.
     ["@comment.documentation"] = { fg = c.purple_1 },
@@ -227,8 +238,14 @@ theme.highlights = {
     ["@variable.global"] = { fg = c.purple_5 },
     ["@variable.builtin"] = { fg = c.yellow_5 },
     ["@variable.member"] = { fg = c.white_4 }, -- For fields. NOTE: play around with this.
-    -- ["@property"] = { fg = c.red_5 }, -- NOTE: Maybe the bright color could be good
-    ["@property"] = { fg = c.puple_5 },
+    ["@property"] = { fg = c.purple_3 },
+
+    -- For css
+    ["@property.css"] = { fg = c.orange_5 },
+
+    -- For queries
+    ["@variable.query"] = { fg = c.yellow_1 }, -- For fields. NOTE: play around with this.
+    ["@type.query"] = { fg = c.orange_1 }, -- For fields. NOTE: play around with this.
 
     -- Functions
     ["@function"] = { link = "Function" },
@@ -324,22 +341,20 @@ theme.highlights = {
     ["@lsp.type.formatSpecifier"] = { link = "@markup.list" },
     ["@lsp.type.generic"] = { link = "@variable" },
     ["@lsp.type.interface"] = { fg = c.blue_1 },
-
-    -- ["@lsp.type.keyword"] = { link = "@keyword" },
-    ["@lsp.type.keyword"] = { fg = c.green_1, bg = c.green_b, style = "italic" },
+    -- ["@lsp.type.keyword"] = { fg = c.green_1, bg = c.green_b, style = "italic" },
     ["@lsp.type.lifetime"] = { link = "@keyword.storage" },
     ["@lsp.type.namespace"] = { link = "@module" },
     ["@lsp.type.number"] = { link = "@number" },
     ["@lsp.type.operator"] = { link = "@operator" },
     ["@lsp.type.parameter"] = { link = "@variable.parameter" },
 
-    -- "@lsp.type.property"] = { fg = c.foreground },
-    ["@lsp.type.property"] = { link = "@property" },
+    -- ["@lsp.type.property"] = { fg = c.purple_5 },
+    ["@lsp.type.property"] = { link = "@variable.member" },
     ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
     ["@lsp.type.selfTypeKeyword"] = { link = "@variable.builtin" },
     ["@lsp.type.string"] = { link = "@string" },
     ["@lsp.type.typeAlias"] = { link = "@type.definition" },
-    ["@lsp.type.unresolvedReference"] = { stye = "undercurl", sp = c.error },
+    ["@lsp.type.unresolvedReference"] = { stye = "undercurl", sp = c.red_3 },
     ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
     ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
     ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
@@ -369,8 +384,8 @@ theme.highlights = {
     yamlTSString = { fg = c.white_1 },
     yamlTSPunctSpecial = { link = "Keyword" },
     yamlKey = { fg = c.green_5 }, -- stephpy/vim-yaml
-    ["@string.yaml"] = { fg = c.yellow_3 },
-    ["@property.yaml"] = { fg = c.purple_3 },
+    -- ["@string.yaml"] = { fg = c.yellow_3 },
+    -- ["@property.yaml"] = { fg = c.purple_3 },
 
     -- bash
     ["@keyword.directive.bash"] = { fg = c.green_1 }, -- By default is linked to PreProc
@@ -453,6 +468,7 @@ theme.highlights = {
     Headline6 = { fg = c.purple_5, bg = c.purple_b, style = "bold" },
     Quote = { fg = c.black_1 },
     CodeBlock = { bg = c.blackboard },
+    -- CodeBlock = { fg = c.gray_3 },
     Dash = { c.blue_3, style = "bold" },
 
     -- nvim-dap
@@ -489,7 +505,7 @@ theme.highlights = {
     BufferCurrentSign = { bg = c.blackboard, fg = c.black_1 },
     BufferCurrentTarget = { bg = c.blackboard, fg = c.red_1 },
     BufferAlternate = { bg = c.yellow_b, fg = c.yellow_1 },
-    BufferAlternateERROR = { bg = c.red_b, fg = c.error_1 },
+    BufferAlternateERROR = { bg = c.red_b, fg = c.red_1 },
     BufferAlternateHINT = { bg = c.blue_b, fg = c.blue_1 },
     BufferAlternateIndex = { bg = c.purple_b, fg = c.purple_1 },
     BufferAlternateINFO = { bg = c.purple_b, fg = c.purple_1 },
@@ -799,7 +815,7 @@ theme.highlights = {
     -- Indent Blankline
     IndentBlanklineChar = { fg = c.purple_1, style = "nocombine" },
     IndentBlanklineContextChar = { fg = c.purple_3, style = "nocombine" },
-    IblIndent = { fg = c.fg_gutter, style = "nocombine" },
+    IblIndent = { fg = c.black_1, style = "nocombine" },
     IblScope = { fg = c.purple, style = "nocombine" },
 
     -- Scrollbar
@@ -862,7 +878,7 @@ theme.highlights = {
     AerialConstructorIcon = { fg = c.blue_5 },
     AerialEnumIcon = { fg = c.blue_5 },
     AerialEnumMemberIcon = { fg = c.white_1 },
-    AerialEventIcon = { fg = c.blu_5 },
+    AerialEventIcon = { fg = c.blue_5 },
     AerialFieldIcon = { fg = c.white_1, style = "italic" },
     AerialFileIcon = { fg = c.green_3 },
     AerialFunctionIcon = { fg = c.blue_1, style = "italic" },
@@ -922,8 +938,8 @@ theme.loadTerminal = function()
     vim.g.terminal_color_4 = c.blue_3
     vim.g.terminal_color_5 = c.purple_3
     vim.g.terminal_color_6 = c.orange_3
-    vim.g.terminal_color_7 = c.grey_4
-    vim.g.terminal_color_8 = c.grey_1
+    vim.g.terminal_color_7 = c.gray_4
+    vim.g.terminal_color_8 = c.gray_1
     vim.g.terminal_color_9 = c.red_5
     vim.g.terminal_color_10 = c.green_5
     vim.g.terminal_color_11 = c.yellow_5
