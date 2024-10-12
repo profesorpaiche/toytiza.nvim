@@ -27,13 +27,17 @@ the moment.
 
 ## Examles
 
-- Lua
+- Luna
 
-![](img/lua_example.png)
+![](img/toytiza-lua.png)
 
 - Julia
 
-![](img/julia_example.png)
+![](img/toytiza-julia.png)
+
+- Pitón
+
+![](img/toytiza-python.png)
 
 ## Ports
 
@@ -46,11 +50,11 @@ for the Wezterm and Alacritty terminal emulators.
 ```lua
 config.colors = {
     foreground = '#EFEBFF',
-    background = '#292732',
+    background = '#1F3D36',
     cursor_bg = '#EFEBFF',
-    cursor_fg = '#292732',
+    cursor_fg = '#1F3D36',
     cursor_border = '#EFEBFF',
-    selection_fg = '#292732',
+    selection_fg = '#1F3D36',
     ansi = {
         '#5B5965',
         '#FEA2C7',
@@ -98,6 +102,6 @@ cyan = "#FFC98B"
 white = "#B1AEBE"
 
 [colors.primary]
-background = "#292732"
+background = "#1F3D36"
 foreground = "#EFEBFF"
 ```
