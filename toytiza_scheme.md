@@ -4,7 +4,7 @@
 
 white: #EFEBFF
 blackboard: #292732
-greenboard: #274C43
+greenboard: #1F3D36
 
 blue: #A6D8F9
 red: #FEA2C7
@@ -15,21 +15,39 @@ orange: #FFC98B
 
 ## Grey colors
 
-grey1: #EFEBFF
-grey2: #DFDBEE
-grey3: #D0CCDE
-grey4: #C0BDCE
-grey5: #B1AEBE
-grey6: #A29FAF
-grey7: #93909F
+grey1: #292732
+grey2: #35333E
+grey3: #413F4A
+grey4: #4E4C58
+grey5: #5B5965
+grey6: #696673
+grey7: #777482
 grey8: #858290
-grey9: #777482
-grey10: #696673
-grey11: #5B5965
-grey12: #4E4C58
-grey13: #413F4A
-grey14: #35333E
-grey15: #292732
+grey9: #93909F
+grey10: #A29FAF
+grey11: #B1AEBE
+grey12: #C0BDCE
+grey13: #D0CCDE
+grey14: #DFDBEE
+grey15: #EFEBFF
+
+## Greenboard variant
+
+greenb1: #1F3D36
+greenb2: #2E4A44
+greenb3: #3D5552
+greenb4: #4C6361
+greenb5: #5A6F70
+greenb6: #697B7E
+greenb7: #78878C
+greenb8: #87949A
+greenb9: #96A1A9
+greenb10: #A5ADB7
+greenb11: #B5B9C5
+greenb12: #C2C5D4
+greenb13: #D1D3E3
+greenb14: #E0DEF1
+greenb15: #EFEBFF
 
 ## blue colors
 
