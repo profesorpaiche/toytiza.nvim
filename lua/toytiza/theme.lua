@@ -112,7 +112,7 @@ theme.highlights = {
     Delimiter = { fg = c.white_normal }, -- character that needs attention like , or .
 
     -- NOTE: Maybe bold is not necessary
-    Type = { fg = c.purple_normal, style = "bold" }, -- int, long, char, etc.
+    Type = { fg = c.purple_normal }, -- int, long, char, etc.
     -- StorageClass = { fg = c.purple_5 }, -- static, register, volatile, etc.
     -- Structure = { fg = c.orange_3 }, -- struct, union, enum, etc.
     -- Typedef = { fg = c.purple_3 }, -- A typedef
