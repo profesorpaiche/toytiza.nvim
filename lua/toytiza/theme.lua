@@ -112,7 +112,7 @@ theme.highlights = {
     Delimiter = { fg = c.white_normal }, -- character that needs attention like , or .
 
     -- NOTE: Maybe bold is not necessary
-    Type = { fg = c.purple_normal }, -- int, long, char, etc.
+    Type = { fg = c.purple_normal, style = "bold" }, -- int, long, char, etc.
     -- StorageClass = { fg = c.purple_5 }, -- static, register, volatile, etc.
     -- Structure = { fg = c.orange_3 }, -- struct, union, enum, etc.
     -- Typedef = { fg = c.purple_3 }, -- A typedef
@@ -398,7 +398,7 @@ theme.highlights = {
     yamlTSString = { fg = c.foreground },
     yamlTSPunctSpecial = { link = "Keyword" },
     yamlKey = { fg = c.green_normal }, -- stephpy/vim-yaml
-    ["@property.yaml"] = { fg = c.orange_normal },
+    ["@property.yaml"] = { fg = c.foreground },
     -- ["@string.yaml"] = { fg = c.yellow_3 },
 
     -- bash
@@ -408,6 +408,9 @@ theme.highlights = {
     ["@variable.parameter.python"] = { link = "@variable.parameter" },
     ["@lsp.type.namespace.python"] = { link = "@variable" },
     ["@attribute.python"] = { fg = c.purple_normal },
+    
+    -- TOML
+    ["@type.toml"] = { fg = c.purple_normal },
 
     -- LSP stuff
     LspReferenceText = { bg = c.yellow_dark }, -- used for highlighting "text" references
